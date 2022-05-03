@@ -46,7 +46,7 @@ Los criterios que se tendrán en cuenta para evaluar el trabajo del alumno son l
 
 En este ejercicio debe crear un script en PHP que cree la estructura de la base de datos. Como es de esperar, debe utilizar los conocimientos aprendidos en la lección correspondiente, por lo tanto, debe utilizar **sqlite**.
 
-Este script se llamará install.php, y debe pedirnos en un formulario si queremos añadir un prefijo a las tablas de la base de datos.
+Este script se llamará **install.php**, y debe pedirnos en un formulario si queremos añadir un prefijo a las tablas de la base de datos.
 
 Por ejemplo, nuestras iniciales. En mi caso sería **ppf**, por tanto, la tabla "user" se crearía con el nombre "ppf_user". Esto deberá tenerlo en cuenta en el resto de la aplicación. Cuando haga selects, insters, etc... Tendrá que poner este prefijo que recuperaremos de la tabla "config" . Esta tabla "config" no tendrá prefijo, si no sería posible saber su nombre.
 

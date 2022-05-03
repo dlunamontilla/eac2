@@ -1,3 +1,4 @@
 *.mwb
 previa.png
 *.wps
+.env
