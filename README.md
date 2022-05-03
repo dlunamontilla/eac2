@@ -3,7 +3,7 @@
 Antes de instalar el proyecto asegúrese de instalar primero las dependencias:
 
 ```bash
-sudo apt install php-sqlite3
+sudo apt install sqlite3 php-sqlite3
 ```
 
 Para empezar, primero debe crear un enlace simbólico para poder correr el proyecto.
