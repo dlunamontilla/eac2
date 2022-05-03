@@ -28,14 +28,8 @@ mklink C:\ruta-del-servidor\public-del-servidor\el-proyecto C:\ruta-del-proyecto
 
 Después de haber creado los enlaces simbólicos, proceda a correr el proyecto. El proyecto será capaz de detectar la ausencia de la base de datos, por lo tanto, le mostrará un formulario para solicitarle que defina un prefijo para todas las tablas de la base de datos.
 
-## A tomar en cuenta
-
-En los sistemas Linux, si lo está corriendo por `Apache2` debe instalar debe instalar **SQLite3** para que lo pueda utilizar.
-
-Por ejemplo, debe escribir en la terminal la siguiente línea:
+La base de datos que va a crear se llama `eac2.db` y lo ubicará en la siguiente ruta:
 
 ```bash
-sudo apt install sqlite3 php-sqlite3
+database/eac2.db
 ```
-
-Si no realiza la acción anterior, no correrá el proyecto.

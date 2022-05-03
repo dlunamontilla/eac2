@@ -1,6 +1,8 @@
 <?php
     $database = __DIR__ . "/../database/eac2.db";
 
+    include __DIR__ . "/../app/index.php";
+    
     if (!file_exists($database)) {
         include __DIR__ . "/../install.php";
         exit;

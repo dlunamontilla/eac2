@@ -68,8 +68,17 @@ class Install {
             nom TEXT NOT NULL PRIMARY KEY,
             valor TEXT NOT NULL
         )");
-
+        
         return $config->execute();
+    }
+
+    /**
+     * Inserta un nuevo en la base de datos.
+     * @return SQLite3Result | FALSE
+     */
+    private function insertUser(): SQLite3Result | FALSE {
+        $user = $this->database->prepare("INSERT INTO $this->prefix" . "_user (nom, password, admin) VALUES ('admin', '" . password_hash('admin', PASSWORD_BCRYPT). "', '1')");
+        return $user->execute();
     }
 
     /**
@@ -78,6 +87,8 @@ class Install {
      */
     public function tables(): bool {
         $user = $this->createUser();
+        $this->insertUser();
+
         $productes = $this->createProductes();
         $config = $this->createConfig();
 
