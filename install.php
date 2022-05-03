@@ -81,17 +81,22 @@ class Install {
         return $user->execute();
     }
 
+    private function insertPrefix(): SQLite3Result | FALSE {
+        $prefix = $this->database->prepare("INSERT INTO $this->prefix" . "_config(nom, valor) VALUES('$this->prefix', 'algo')");
+        return $prefix->execute();
+    }
+
     /**
      * Permite crear las tablas de la base de datos.
      * @return bool
      */
     public function tables(): bool {
         $user = $this->createUser();
-        $this->insertUser();
 
         $productes = $this->createProductes();
         $config = $this->createConfig();
 
+        $this->insertPrefix();
         return !!$user && !!$productes && !! $config;
     }
 
