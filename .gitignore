@@ -2,3 +2,4 @@
 previa.png
 *.wps
 .env
+database/eac2.db
