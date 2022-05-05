@@ -2,6 +2,7 @@
 ini_set('display_errors', "1");
 ini_set('display_startup_errors', '1');
 
+/* It creates a new SQLite3 database object, and assigns it to the variable ->database */
 class Install {
     /**
      * Instancia de la clase SQLite3
@@ -15,6 +16,9 @@ class Install {
      */
     private $prefix;
 
+    /**
+     * It creates a new SQLite3 database object, and assigns it to the variable ->database
+     */
     public function __construct() {
         $this->database = new SQLite3(__DIR__ . "/database/eac2.db", SQLITE3_OPEN_READWRITE | SQLITE3_OPEN_CREATE);
         $this->prefix = "";
@@ -81,6 +85,11 @@ class Install {
         return $user->execute();
     }
 
+    /**
+     * It inserts a prefix into the database.
+     * 
+     * @return SQLite3Result | FALSE The result of the query.
+     */
     private function insertPrefix(): SQLite3Result | FALSE {
         $prefix = $this->database->prepare("INSERT INTO $this->prefix" . "_config(nom, valor) VALUES('$this->prefix', 'algo')");
         return $prefix->execute();
@@ -92,14 +101,23 @@ class Install {
      */
     public function tables(): bool {
         $user = $this->createUser();
-
+        $this->insertUser();
         $productes = $this->createProductes();
         $config = $this->createConfig();
 
         $this->insertPrefix();
         return !!$user && !!$productes && !! $config;
     }
+    
 
+    /**
+     * > This function returns the value of the input field with the name  from the 
+     * array
+     * 
+     * @param string inputName The name of the input field you want to get the value of.
+     * 
+     * @return string | FALSE The value of the inputName key in the  array.
+     */
     public function post(string $inputName): string | FALSE {
         $value = "";
 

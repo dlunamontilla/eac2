@@ -1,4 +1,5 @@
 <?php
+    /* Checking if the database exists and if not, it will include the install.php file. */
     $database = __DIR__ . "/../database/eac2.db";
 
     include __DIR__ . "/../app/index.php";
